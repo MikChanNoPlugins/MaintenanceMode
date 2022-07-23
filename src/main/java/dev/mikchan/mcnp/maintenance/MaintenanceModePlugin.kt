@@ -4,6 +4,7 @@ import dev.mikchan.mcnp.maintenance.command.AdminCommand
 import dev.mikchan.mcnp.maintenance.config.Config
 import dev.mikchan.mcnp.maintenance.config.IConfig
 import dev.mikchan.mcnp.maintenance.config.IConfigListener
+import dev.mikchan.mcnp.maintenance.formatter.FormatterCreator
 import dev.mikchan.mcnp.maintenance.listener.MainListener
 import org.bstats.bukkit.Metrics
 import org.bukkit.event.HandlerList
@@ -15,19 +16,19 @@ class MaintenanceModePlugin : JavaPlugin(), IConfigListener {
         private const val bStatsId = 15889
     }
 
-    private val config = Config(this)
     private var stateEnabled = false
 
-    private fun enable() {
+    private fun enable(config: IConfig) {
         if (stateEnabled) return
         stateEnabled = true
 
+        val formatter = FormatterCreator().build(this)
+        server.pluginManager.registerEvents(MainListener(config, formatter), this)
+
         for (player in server.onlinePlayers) {
             if (player.hasPermission("mcn.maintenance.allow")) continue
-            player.kickPlayer(config.kickMessage)
+            player.kickPlayer(formatter.format(config.kickMessage, player))
         }
-
-        server.pluginManager.registerEvents(MainListener(config), this)
     }
 
     private fun disable() {
@@ -38,13 +39,15 @@ class MaintenanceModePlugin : JavaPlugin(), IConfigListener {
     }
 
     override fun handleUpdate(config: IConfig) {
-        if (config.enabled) enable()
+        if (config.enabled) enable(config)
         else disable()
     }
 
     override fun onEnable() {
         saveDefaultConfig()
-        if (config.enabled) enable()
+        val config = Config(this)
+
+        if (config.enabled) enable(config)
         config.subscribe(this)
 
         getCommand("mcn_maintenance")?.let {
@@ -58,6 +61,7 @@ class MaintenanceModePlugin : JavaPlugin(), IConfigListener {
 
     override fun onDisable() {
         disable()
+
         getCommand("mcn_maintenance")?.let {
             it.setExecutor(null)
             it.tabCompleter = null

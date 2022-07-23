@@ -11,6 +11,9 @@ api-version: 1.16
 
 load: STARTUP
 
+softdepend:
+  - PlaceholderAPI
+
 commands:
   mcn_maintenance:
     permission: mcn.maintenance.admin
