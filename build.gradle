@@ -17,8 +17,13 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+static def determineVersion(String defaultVersion) {
+    def envVersion = System.getenv("VERSION")
+    return envVersion == null ? defaultVersion : envVersion
+}
+
 group = "dev.mikchan.mcnp"
-version = "0.0.1"
+version = determineVersion("0.0.1")
 
 def localProperties = new Properties()
 def propertiesFile = rootProject.file('local.properties')
