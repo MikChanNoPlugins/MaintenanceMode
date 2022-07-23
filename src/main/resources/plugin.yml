@@ -1,0 +1,15 @@
+name: MikChanNoMaintenanceMode
+version: "${version}"
+
+authors: [ "George Endo (wtlgo / MikChan)" ]
+description: Add maintenance mode
+website: https://github.com/MikChanNoPlugins
+
+prefix: MCnMaintenance
+main: dev.mikchan.mcnp.maintenance.MaintenanceModePlugin
+api-version: 1.16
+
+load: STARTUP
+
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10
