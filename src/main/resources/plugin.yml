@@ -11,5 +11,18 @@ api-version: 1.16
 
 load: STARTUP
 
+commands:
+  mcn_maintenance:
+    permission: mcn.maintenance.admin
+    aliases:
+      - maintenance
+
+permissions:
+  mcn.maintenance.admin:
+    default: op
+
+  mcn.maintenance.allow:
+    default: op
+
 libraries:
   - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10

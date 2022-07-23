@@ -1,0 +1,8 @@
+enabled: false
+
+kick-message: |
+  The server is under maintenance
+
+enable-custom-motd: true
+custom-motd: |
+  The server is under maintenance
