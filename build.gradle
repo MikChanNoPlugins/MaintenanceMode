@@ -1,6 +1,7 @@
 plugins {
     id "java"
     id "org.jetbrains.kotlin.jvm" version "1.7.10"
+    id 'org.jetbrains.dokka' version "1.7.10"
     id 'maven-publish'
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
@@ -97,8 +98,14 @@ compileTestKotlin {
     }
 }
 
-if (file("local.gradle").exists()) {
-    apply from: "local.gradle"
+dokkaHtml {
+    outputDirectory.set(file("${buildDir}/dokka"))
+}
+
+javadocJar {
+    archiveClassifier.set("javadoc")
+    dependsOn("dokkaHtml")
+    from("$buildDir/dokka")
 }
 
 shadowJar {
@@ -134,4 +141,8 @@ publishing {
             artifact sourcesJar
         }
     }
+}
+
+if (file("local.gradle").exists()) {
+    apply from: "local.gradle"
 }

@@ -10,6 +10,9 @@ import org.bstats.bukkit.Metrics
 import org.bukkit.event.HandlerList
 import org.bukkit.plugin.java.JavaPlugin
 
+/**
+ * The main plugin class
+ */
 @Suppress("unused")
 class MaintenanceModePlugin : JavaPlugin(), IConfigListener {
     companion object {
