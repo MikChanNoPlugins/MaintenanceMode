@@ -10,6 +10,7 @@ class MaintenanceModePlugin : JavaPlugin() {
     }
 
     override fun onEnable() {
+        logger.info("This plugin does nothing at the moment")
         Metrics(this, bStatsId)
     }
 
