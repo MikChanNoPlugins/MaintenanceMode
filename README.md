@@ -7,6 +7,10 @@ This plugin adds a very easy to use maintenance mode to your server. In case you
 
 Supports PlaceholderAPI.
 
+## Supported Versions
+
+Spigot/Paper/Bukkit 1.16.5+
+
 ## Usage
 
 First of all, you need to give the permission `mcn.maintenance.allow` to everyone who has to have access during the maintenance period, and then just write `/maintenance enable`. It will kick all other players, and not let them in till the maintenance period is not over. You can disable the maintenance mode by writing `/maintenance disable`. You can also change the kick message and customize MOTD during the maintenance period by editing `config.yml`. For changes to take effect you either need to run `/maintenance reload` or restart the server.
