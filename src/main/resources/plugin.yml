@@ -2,7 +2,7 @@ name: MikChanNoMaintenanceMode
 version: "${version}"
 
 authors: [ "George Endo (wtlgo / MikChan)" ]
-description: Add maintenance mode
+description: Adds easy to use maintenance mode
 website: https://github.com/MikChanNoPlugins
 
 prefix: MCnMaintenance
