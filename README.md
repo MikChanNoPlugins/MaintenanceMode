@@ -1,5 +1,7 @@
+[![Downloads](https://pluginbadges.glitch.me/api/v1/dl/Downloads-limegreen.svg?spigot=mikchan%25E3%2581%25AEmaintenancemode.103633&github=MikChanNoPlugins%2FMaintenanceMode&style=flat)](https://www.spigotmc.org/resources/mikchan%E3%81%AEmaintenancemode.103633/)
 [![Java CI](https://github.com/MikChanNoPlugins/MaintenanceMode/actions/workflows/ci.yaml/badge.svg)](https://github.com/MikChanNoPlugins/MaintenanceMode/actions/workflows/ci.yaml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/826eab12d79143aa9fd129742419c354)](https://www.codacy.com/gh/MikChanNoPlugins/MaintenanceMode/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MikChanNoPlugins/MaintenanceMode&amp;utm_campaign=Badge_Grade)
+[![Lines of Code](https://tokei.rs/b1/github/MikChanNoPlugins/MaintenanceMode?category=code)](https://github.com/XAMPPRocky/tokei)
 
 # MikChanの MaintenanceMode
 
